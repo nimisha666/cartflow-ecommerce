@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "cartflow-ecommerce.vercel.app/api/auth"
+        baseUrl: "https://cartflow-backend-production.up.railway.app/api/auth"
     }),
     tagTypes: ["User"],
     endpoints: (builder) => ({

@@ -17,7 +17,7 @@ const AdminDashboard = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.get("cartflow-ecommerce.vercel.app/api/orders");
+            const response = await axios.get("https://cartflow-backend-production.up.railway.app/api/orders");
             setOrders(response.data);
         } catch (error) {
             console.error("Error fetching orders:", error);
@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get("cartflow-ecommerce.vercel.app/api/products");
+            const response = await axios.get("https://cartflow-backend-production.up.railway.app/api/products");
             setProducts(response.data.products);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -41,7 +41,7 @@ const AdminDashboard = () => {
     const handleUpdateProduct = async () => {
         if (!currentProduct) return;
         try {
-            await axios.patch(`cartflow-ecommerce.vercel.app/api/products/update-product/${currentProduct._id}`, currentProduct);
+            await axios.patch(`https://cartflow-backend-production.up.railway.app/api/products/update-product/${currentProduct._id}`, currentProduct);
             setIsEditing(false);
             fetchProducts(); // Refresh product list
         } catch (error) {
@@ -51,7 +51,7 @@ const AdminDashboard = () => {
 
     const handleAddProduct = async () => {
         try {
-            const response = await fetch("cartflow-ecommerce.vercel.app/api/products/create-product", {
+            const response = await fetch("https://cartflow-backend-production.up.railway.app/api/products/create-product", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newProduct),
