@@ -13,6 +13,7 @@ const ProductCards = ({ products = [] }) => {
             product._id = product.id || `temp-${Math.random() * 1000}`; // Assign a fallback ID
         }
         dispatch(addToCart(product));
+        console.log(product)
     };
 
     return (
