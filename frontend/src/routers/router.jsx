@@ -7,6 +7,8 @@ import ShopPage from "../pages/shop/ShopPage.jsx";
 import SingleProduct from "../pages/shop/productDetails/SingleProduct.jsx";
 import Login from "../components/Login.jsx";
 import Register from "../components/Register.jsx";
+import AdminDashboard from "../pages/admin/AdminDashboard.jsx";
+import CheckoutPage from "../pages/shop/CheckoutPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +20,8 @@ const router = createBrowserRouter([
             { path: "/search", element: <Search /> },
             { path: "/shop", element: <ShopPage /> },
             { path: "/shop/:id", element: <SingleProduct /> },
-
+            { path: "/dashboard/admin", element: <AdminDashboard /> },
+            { path: "/checkout", element: <CheckoutPage /> }
         ]
     },
     {
