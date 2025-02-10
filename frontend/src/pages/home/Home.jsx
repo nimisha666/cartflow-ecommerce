@@ -1,5 +1,5 @@
 import React from 'react'
-import Banner from './banner'
+import Banner from './Banner'
 import Categories from './Categories'
 import WomenSection from './WomenSection'
 import TrendingProducts from '../shop/TrendingProducts'
