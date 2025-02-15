@@ -32,7 +32,7 @@ const CheckoutPage = () => {
             {products.length > 0 ? (
                 <div className="border-b pb-4">
                     {products.map((item, index) => (
-                        <div key={index} className="flex flex-col items-center justify-between shadow-md md:p-5 p-2 mb-4">
+                        <div key={index} className="flex flex-col gap-8 items-center justify-between shadow-md md:p-5 p-2 mb-4">
                             <div className="flex items-center">
                                 <span className="mr-4 px-1 bg-primary text-white rounded-full">0{index + 1}</span>
                                 <img src={item.image} alt="" className="size-12 object-cover mr-4" />
