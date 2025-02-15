@@ -3,7 +3,7 @@
 :root {
     --primary-color: #ed3849;
     --primary-color-dark: #d23141;
-    --primary-color-light: #f4e5ec;
+    --primary-color-light: #f3d3d9;
     --text-dark: #0f172a;
     --text-light: #64748b;
     --extra-light: #f8fafc;
@@ -169,7 +169,7 @@ nav {
     left: 50%;
     bottom: -5rem;
     transform: translateX(-50%);
-    max-width: 500px;
+    max-width: 450px;
 }
 
 .categories__grid {

@@ -1,7 +1,7 @@
 import React from 'react'
-import cart1 from "../../assets/card-1.png";
-import cart2 from "../../assets/card-2.png";
-import cart3 from "../../assets/card-3.png";
+import cart1 from "../../assets/card-1.jpg";
+import cart2 from "../../assets/card-2.jpg";
+import cart3 from "../../assets/card-3.jpg";
 
 const cards = [
     {

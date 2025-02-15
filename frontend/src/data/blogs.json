@@ -1,31 +1,30 @@
 [
-    {
-      "id": 1,
-      "title": "Mastering the Art of Capsule Wardrobes",
-      "subtitle": "Timeless Elegance",
-      "date": "12th August 2022",
-      "imageUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": 2,
-      "title": "Unveiling the Hottest Beachwear Trends",
-      "subtitle": "Summer Breeze",
-      "date": "18th January 2023",
-      "imageUrl": "https://images.unsplash.com/photo-1700159017572-de76bb0c5719?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": 3,
-      "title": "Navigating the World of Women's Tailoring",
-      "subtitle": "Power Dressing",
-      "date": "5th January 2025",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1682142715511-27bfbfdc044f?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-        "id": 4,
-        "title": "The World's Best Fashion Fair 2025",
-        "subtitle": "New York Times",
-        "date": "25th May 2025",
-        "imageUrl": "https://plus.unsplash.com/premium_photo-1713720663924-4e3fe8f20f79?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Mastering the Art of Capsule Wardrobes",
+    "subtitle": "Timeless Elegance",
+    "date": "12th August 2022",
+    "imageUrl": "https://i.pinimg.com/736x/4b/c8/b4/4bc8b46874ba8c6a33a36028a0168824.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Unveiling the Hottest Beachwear Trends",
+    "subtitle": "Summer Breeze",
+    "date": "18th January 2023",
+    "imageUrl": "https://i.pinimg.com/736x/fe/e9/a4/fee9a4523839a950327a429bfe3bd696.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Navigating the World of Women's Tailoring",
+    "subtitle": "Power Dressing",
+    "date": "5th January 2025",
+    "imageUrl": "https://i.pinimg.com/736x/a8/e0/b5/a8e0b5890505d3cfb6eb4599be4c3882.jpg"
+  },
+  {
+    "id": 4,
+    "title": "The World's Best Fashion Fair 2025",
+    "subtitle": "India Times",
+    "date": "25th May 2025",
+    "imageUrl": "https://i.pinimg.com/736x/9c/57/5d/9c575d4de815792f9d1ac753554b2cf7.jpg"
+  }
+]

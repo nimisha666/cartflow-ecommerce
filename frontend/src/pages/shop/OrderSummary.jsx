@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../features/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+
 const OrderSummary = ({ onClose }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -14,37 +15,39 @@ const OrderSummary = ({ onClose }) => {
     };
 
     const handleProceedCheckout = () => {
-        onClose();  // ✅ Close modal before navigating
+        onClose();
         navigate('/checkout');
     };
 
     return (
-        <div className="bg-primary-light mt-5 rounded text-base shadow-md">
-            <div className="px-6 py-4 space-y-5">
-                <h2 className="text-2xl font-bold text-dark">Order Summary</h2>
-                <p className='text-text-dark mt-2'>Selected Items: {selectedItems}</p>
-                <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
-                <p>Tax ({(taxRate * 100).toFixed(0)}%): ₹{tax.toFixed(2)}</p>
-                <h3 className='font-bold'>Grand Total: ₹{grandTotal.toFixed(2)}</h3>
+        <div className="bg-primary-light mt-5 rounded text-base shadow-md p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-dark text-center">Order Summary</h2>
 
-                <div className="px-4 mb-6 flex gap-4">
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleClearCart();
-                        }}
-                        className='bg-red-500 px-4 py-2 text-white rounded-md flex items-center justify-center hover:bg-red-600 transition'>
-                        <span className="mr-2">Clear Cart</span>
-                        <i className="ri-delete-bin-5-fill"></i>
-                    </button>
+            <div className="mt-4 space-y-2 text-center sm:text-left">
+                <p className='text-text-dark'>Selected Items: <span className="font-semibold">{selectedItems}</span></p>
+                <p>Total Price: <span className="font-semibold">₹{totalPrice.toFixed(2)}</span></p>
+                <p>Tax ({(taxRate * 100).toFixed(0)}%): <span className="font-semibold">₹{tax.toFixed(2)}</span></p>
+                <h3 className='font-bold text-lg'>Grand Total: ₹{grandTotal.toFixed(2)}</h3>
+            </div>
 
-                    <button
-                        onClick={handleProceedCheckout}  // ✅ This will now close modal
-                        className='bg-green-600 px-4 py-2 text-white rounded-md flex items-center justify-center hover:bg-green-700 transition'>
-                        <span>Proceed to Checkout</span>
-                        <i className="ri-bank-card-fill ml-2"></i>
-                    </button>
-                </div>
+            {/* Buttons: Stack on small screens, side-by-side on larger screens */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleClearCart();
+                    }}
+                    className='bg-red-500 w-full sm:w-auto px-4 py-2 text-white rounded-md flex items-center justify-center hover:bg-red-600 transition'>
+                    <span className="mr-2">Clear Cart</span>
+                    <i className="ri-delete-bin-5-fill"></i>
+                </button>
+
+                <button
+                    onClick={handleProceedCheckout}
+                    className='bg-green-600 w-full sm:w-auto px-4 py-2 text-white rounded-md flex items-center justify-center hover:bg-green-700 transition'>
+                    <span>Proceed to Checkout</span>
+                    <i className="ri-bank-card-fill ml-2"></i>
+                </button>
             </div>
         </div>
     );
