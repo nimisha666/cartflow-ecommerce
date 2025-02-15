@@ -2,22 +2,19 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../features/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
-
-const OrderSummary = () => {
+const OrderSummary = ({ onClose }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // ✅ Ensure `cart` always has a default structure
     const { selectedItems = 0, totalPrice = 0, tax = 0, taxRate = 0.05, grandTotal = 0 } =
         useSelector((store) => store.cart) || {};
 
-    // ✅ Clear cart function
     const handleClearCart = () => {
         dispatch(clearCart());
     };
 
-    // ✅ Navigate to checkout page
     const handleProceedCheckout = () => {
+        onClose();  // ✅ Close modal before navigating
         navigate('/checkout');
     };
 
@@ -31,7 +28,6 @@ const OrderSummary = () => {
                 <h3 className='font-bold'>Grand Total: ₹{grandTotal.toFixed(2)}</h3>
 
                 <div className="px-4 mb-6 flex gap-4">
-                    {/* ❌ Prevent event bubbling, ✅ Improve styling */}
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -43,7 +39,7 @@ const OrderSummary = () => {
                     </button>
 
                     <button
-                        onClick={handleProceedCheckout}
+                        onClick={handleProceedCheckout}  // ✅ This will now close modal
                         className='bg-green-600 px-4 py-2 text-white rounded-md flex items-center justify-center hover:bg-green-700 transition'>
                         <span>Proceed to Checkout</span>
                         <i className="ri-bank-card-fill ml-2"></i>
