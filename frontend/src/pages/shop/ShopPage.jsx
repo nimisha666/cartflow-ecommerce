@@ -95,7 +95,7 @@ const ShopPage = () => {
                     <div className="">
                         <h3 className="text-xl font-medium mb-4">Showing {startProduct} to {endProduct} of {totalProducts} products</h3>
 
-                        <ProductCards products={productsData} />
+                        <ProductCards products={products} />
                         {/* pagination controls */}
                         <div className='mt-6 flex justify-center'>
                             <button
