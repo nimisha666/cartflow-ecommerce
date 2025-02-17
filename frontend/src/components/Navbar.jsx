@@ -79,11 +79,12 @@ const Navbar = () => {
                     <span>
                         {
                             user ? (
-                                <>
+                                <div className='flex items-center space-x-2'>
                                     <img
                                         onClick={handDropDownToggle}
                                         src={user?.profileImage || avatarImg} alt="user-avatar"
                                         className='size-6 rounded-full cursor-pointer' />
+                                    <span className='font-medium'>{user?.username}</span>
                                     {
                                         isDropDownOpen && (
                                             <div className='absolute right-0 mt-3 p-4 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50'>
@@ -102,7 +103,7 @@ const Navbar = () => {
                                             </div>
                                         )
                                     }
-                                </>
+                                </div>
                             ) : (
                                 <Link to="/login"><i className="ri-user-line"></i></Link>
                             )
