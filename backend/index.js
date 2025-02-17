@@ -17,8 +17,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // ✅ CORS Configuration
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['https://cartflow-ecommerce-hgwv-nimisha666s-projects.vercel.app', 'http://localhost:5173'],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200,
 }));
 
 // ✅ Import Routes from a centralized file
