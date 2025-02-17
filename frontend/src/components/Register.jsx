@@ -18,7 +18,7 @@ const Register = () => {
             username,
             email,
             password
-        }
+        };
         try {
             await registerUser(data).unwrap();
             alert("registration successful!");
