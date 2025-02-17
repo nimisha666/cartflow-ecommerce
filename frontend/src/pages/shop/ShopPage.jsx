@@ -8,10 +8,10 @@ const filters = {
     categories: ['all', 'accessories', 'dress', 'jwellery', 'cosmetics'],
     colors: ['all', 'black', 'red', 'gold', 'blue', 'silver', 'beige', 'green'],
     priceRanges: [
-        { label: 'Under $50', min: 0, max: 50 },
-        { label: '$50 - $100', min: 50, max: 100 },
-        { label: '$100 - $200', min: 100, max: 200 },
-        { label: '$200 and above', min: 200, max: Infinity },
+        { label: 'Under ₹500', min: 0, max: 500 },
+        { label: '₹500 - ₹1000', min: 500, max: 1000 },
+        { label: '₹1000 - ₹2000', min: 1000, max: 2000 },
+        { label: '₹2000 and above', min: 2000, max: Infinity },
 
     ]
 };

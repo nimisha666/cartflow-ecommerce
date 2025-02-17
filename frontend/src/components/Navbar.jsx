@@ -83,7 +83,7 @@ const Navbar = () => {
                                     <img
                                         onClick={handDropDownToggle}
                                         src={user?.profileImage || avatarImg} alt="user-avatar"
-                                        className='size-6 rounded-full cursor-pointer' /><br />
+                                        className='size-6 rounded-full cursor-pointer' />
                                     <span className='font-medium'>{user?.username}</span>
                                     {
                                         isDropDownOpen && (
