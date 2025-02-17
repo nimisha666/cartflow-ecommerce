@@ -4,7 +4,7 @@ import { getBaseUrl } from '../../utils/baseURL';
 const productsApi = createApi({
     reducerPath: 'productsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://cartflow-backend-production.up.railway.app/api/products",
+        baseUrl: "https://cartflow-backend-production.up.railway.app/api/auth/products",
         credentials: 'include'
     }),
     tagTypes: ["Products"],
