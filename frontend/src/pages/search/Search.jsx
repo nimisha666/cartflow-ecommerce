@@ -6,7 +6,7 @@ const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8;
+  const productsPerPage = 16;
 
   // Fetch all products
   const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
