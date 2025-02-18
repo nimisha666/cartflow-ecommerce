@@ -11,7 +11,7 @@ const Search = () => {
     setFilteredProducts(products);
   }, [products]);
 
-  const handleSearch = () => {
+  useEffect(() => {
     const query = searchQuery.toLowerCase();
     const filtered = products.filter(
       (product) =>
@@ -19,7 +19,7 @@ const Search = () => {
         product.description.toLowerCase().includes(query)
     );
     setFilteredProducts(filtered);
-  };
+  }, [searchQuery, products]);  // Now, search updates instantly when typing
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading products.</div>;
@@ -41,12 +41,6 @@ const Search = () => {
             className="search-bar w-full max-w-4xl p-2 border rounded"
             placeholder="Search for products..."
           />
-          <button
-            onClick={handleSearch}
-            className="search-button w-full md:w-auto py-2 px-8 bg-primary text-white rounded"
-          >
-            Search
-          </button>
         </div>
         <ProductCards products={filteredProducts} />
       </section>
