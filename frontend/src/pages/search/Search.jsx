@@ -5,13 +5,15 @@ import { useFetchAllProductsQuery } from '../../features/products/productsApi';
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
   const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
 
   useEffect(() => {
     setFilteredProducts(products);
   }, [products]);
 
-  useEffect(() => {
+  const handleSearch = () => {
     const query = searchQuery.toLowerCase();
     const filtered = products.filter(
       (product) =>
@@ -19,7 +21,14 @@ const Search = () => {
         product.description.toLowerCase().includes(query)
     );
     setFilteredProducts(filtered);
-  }, [searchQuery, products]);  // Now, search updates instantly when typing
+    setCurrentPage(1);
+  };
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading products.</div>;
@@ -41,8 +50,21 @@ const Search = () => {
             className="search-bar w-full max-w-4xl p-2 border rounded"
             placeholder="Search for products..."
           />
+          <button
+            onClick={handleSearch}
+            className="search-button w-full md:w-auto py-2 px-8 bg-primary text-white rounded"
+          >
+            Search
+          </button>
         </div>
-        <ProductCards products={filteredProducts} />
+        <ProductCards products={currentProducts} />
+        <div className="pagination flex justify-center mt-4">
+          {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
+            <button key={index} onClick={() => paginate(index + 1)} className="px-4 py-2 mx-1 border rounded">
+              {index + 1}
+            </button>
+          ))}
+        </div>
       </section>
     </>
   );
