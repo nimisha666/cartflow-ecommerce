@@ -9,13 +9,16 @@ const CategoryPage = () => {
     const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
 
     useEffect(() => {
-        console.log("Fetched Products:", products);
-        console.log("Category to filter:", categoryName);
+        console.log("Fetched Products:", products);  // Debugging
+        console.log("Category to filter:", categoryName?.trim().toLowerCase());
 
         if (products.length > 0) {
-            const filtered = products.filter((product) =>
-                product.category?.toLowerCase().trim() === categoryName?.toLowerCase().trim()
-            );
+            const filtered = products.filter((product) => {
+                console.log("Checking product:", product.name, "Category:", product.category);  // Debugging
+                return product.category?.trim().toLowerCase() === categoryName?.trim().toLowerCase();
+            });
+
+            console.log("Filtered Products:", filtered);  // Debugging
             setFilteredProducts(filtered);
         }
     }, [categoryName, products]);
