@@ -41,7 +41,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
                                     <img src={item.image} alt={item.name} className="w-14 h-14 object-cover rounded-md" />
                                     <div>
                                         <h5 className="text-lg font-medium">{item.name}</h5>
-                                        <p className="text-gray-600 text-sm">${Number(item.price).toFixed(2)}</p>
+                                        <p className="text-gray-600 text-sm">₹{Number(item.price).toFixed(2)}</p>
                                     </div>
                                 </div>
 
