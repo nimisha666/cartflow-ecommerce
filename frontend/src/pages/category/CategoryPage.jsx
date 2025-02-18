@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import products from "../../data/products.json";
 import ProductCards from '../shop/ProductCards';
+import { useFetchAllProductsQuery } from '../../features/products/productsApi';
 
 const CategoryPage = () => {
     const { categoryName } = useParams();
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
 
     useEffect(() => {
-        const filtered = products.filter((product) => product.category === categoryName.toLowerCase());
-
-        setFilteredProducts(filtered);
-    }, [categoryName])
+        if (products.length > 0) {
+            const filtered = products.filter((product) => product.category.toLowerCase() === categoryName.toLowerCase());
+            setFilteredProducts(filtered);
+        }
+    }, [categoryName, products]);
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-    })
+        window.scrollTo(0, 0);
+    }, [categoryName]);
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error loading products.</div>;
+
     return (
         <>
             <section className="section__container bg-primary-light">
@@ -26,7 +32,7 @@ const CategoryPage = () => {
                 <ProductCards products={filteredProducts} />
             </div>
         </>
-    )
-}
+    );
+};
 
-export default CategoryPage
+export default CategoryPage;
