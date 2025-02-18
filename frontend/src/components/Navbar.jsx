@@ -36,7 +36,7 @@ const Navbar = () => {
 
     // user dropdown menu
     const userDropDownMenu = [
-        { label: "Profile", path: "/dashboard/profile" },
+        { label: "Profile", path: "/profile" },
     ];
 
     const dropdownMenus = user?.role === 'admin' ? [...adminDropDownMenu] : [...userDropDownMenu];
