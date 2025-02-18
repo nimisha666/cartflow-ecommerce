@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import ProductCards from '../shop/ProductCards';
 import { useFetchAllProductsQuery } from '../../features/products/productsApi';
 
-const Search = () => {
+const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
+
+  // Fetch all products
   const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
 
   useEffect(() => {
     setFilteredProducts(products);
   }, [products]);
 
+  // Search functionality
   const handleSearch = () => {
     const query = searchQuery.toLowerCase();
     const filtered = products.filter(
@@ -24,6 +27,7 @@ const Search = () => {
     setCurrentPage(1);
   };
 
+  // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -38,7 +42,7 @@ const Search = () => {
       <section className="section__container bg-primary-light">
         <h2 className="section__header capitalize">Search Products</h2>
         <p className="section__subheader">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque quos ut corrupti porro illum
+          Find the best products matching your search criteria.
         </p>
       </section>
       <section className="section__container">
@@ -58,6 +62,7 @@ const Search = () => {
           </button>
         </div>
         <ProductCards products={currentProducts} />
+        {/* Pagination */}
         <div className="pagination flex justify-center mt-4">
           {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
             <button key={index} onClick={() => paginate(index + 1)} className="px-4 py-2 mx-1 border rounded">
@@ -70,4 +75,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchPage;
