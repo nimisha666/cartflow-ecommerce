@@ -1,32 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import products from "../../data/products.json";
 import ProductCards from '../shop/ProductCards';
+import { useFetchAllProductsQuery } from '../../features/products/productsApi';
 
 const CategoryPage = () => {
     const { categoryName } = useParams();
-    const [filteredProducts, setFilteredProducts] = useState([]);
+
+    // Fetch only category-specific products from backend
+    const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({
+        category: categoryName.toLowerCase() // Pass category name to backend
+    });
 
     useEffect(() => {
-        const filtered = products.filter((product) => product.category === categoryName.toLowerCase());
+        window.scrollTo(0, 0);
+    }, [categoryName]);
 
-        setFilteredProducts(filtered);
-    }, [categoryName])
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error loading products.</div>;
+    if (products.length === 0) return <div>No products available.</div>;
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
     return (
         <>
             <section className="section__container bg-primary-light">
                 <h2 className="section__header capitalize">{categoryName}</h2>
-                <p className="section__subheader">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque quos ut corrupti porro illum</p>
+                <p className="section__subheader">Explore our collection of {categoryName} items.</p>
             </section>
             <div className="section__container">
-                <ProductCards products={filteredProducts} />
+                <ProductCards products={products} />
             </div>
         </>
-    )
-}
+    );
+};
 
-export default CategoryPage
+export default CategoryPage;
