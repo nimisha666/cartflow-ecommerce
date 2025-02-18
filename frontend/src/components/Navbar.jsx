@@ -87,7 +87,7 @@ const Navbar = () => {
                                     <span className='font-medium'>{user?.username}</span>
                                     {
                                         isDropDownOpen && (
-                                            <div className='absolute right-0 mt-3 p-4 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50'>
+                                            <div className='absolute top-20 mt-3 p-4 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50'>
                                                 <ul className='font-medium space-y-4 p-2'>
                                                     {dropdownMenus.map((menu, index) => (
                                                         <li key={index}>
