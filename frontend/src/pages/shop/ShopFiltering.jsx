@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
     if (!filters) {
@@ -16,7 +16,8 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                 {filters.categories?.map((category) => (
                     <label key={category} className="capitalize cursor-pointer">
                         <input
-                            type="radio" name="category"
+                            type="radio"
+                            name="category"
                             value={category}
                             checked={filtersState?.category === category}
                             onChange={(e) => setFiltersState({ ...filtersState, category: e.target.value })}
@@ -33,7 +34,8 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                 {filters.colors?.map((color) => (
                     <label key={color} className="capitalize cursor-pointer">
                         <input
-                            type="radio" name="color"
+                            type="radio"
+                            name="color"
                             value={color}
                             checked={filtersState?.color === color}
                             onChange={(e) => setFiltersState({ ...filtersState, color: e.target.value })}
@@ -43,16 +45,17 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                 ))}
             </div>
 
-            {/* Price Range Filters */}
+            {/* Price Range Filters - Fixed */}
             <div className="flex flex-col space-y-2">
                 <h4 className="font-medium text-lg">Price Range</h4>
                 <hr />
-                {filters.priceRanges?.map((range) => ( // ✅ Correct key
+                {filters.priceRanges?.map((range) => (
                     <label key={range.label} className="capitalize cursor-pointer">
                         <input
-                            type="radio" name="priceRange"
+                            type="radio"
+                            name="priceRange"
                             value={`${range.min}-${range.max}`}
-                            checked={filtersState?.priceRange === `${range.min}-${range.max}`}
+                            checked={filtersState.priceRange === `${range.min}-${range.max}`}
                             onChange={(e) => setFiltersState({ ...filtersState, priceRange: e.target.value })}
                         />
                         <span className="ml-1">{range.label}</span>
