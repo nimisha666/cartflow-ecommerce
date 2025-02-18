@@ -10,11 +10,11 @@ const CategoryPage = () => {
 
     useEffect(() => {
         console.log("Fetched Products:", products);
-        console.log("Category to filter:", categoryName?.toLowerCase().trim());
+        console.log("Category to filter:", categoryName);
 
         if (products.length > 0) {
             const filtered = products.filter((product) =>
-                product.category?.toLowerCase().trim() === categoryName.toLowerCase().trim()
+                product.category?.toLowerCase().trim() === categoryName?.toLowerCase().trim()
             );
             setFilteredProducts(filtered);
         }
@@ -26,7 +26,6 @@ const CategoryPage = () => {
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error loading products.</div>;
-    if (filteredProducts.length === 0) return <div>No products found in this category.</div>;
 
     return (
         <>
@@ -35,7 +34,11 @@ const CategoryPage = () => {
                 <p className="section__subheader">Browse our collection of {categoryName}.</p>
             </section>
             <div className="section__container">
-                <ProductCards products={filteredProducts} />
+                {filteredProducts.length > 0 ? (
+                    <ProductCards products={filteredProducts} />
+                ) : (
+                    <div>No products found in this category.</div>
+                )}
             </div>
         </>
     );
