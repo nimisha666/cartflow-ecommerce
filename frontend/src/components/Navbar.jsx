@@ -36,7 +36,6 @@ const Navbar = () => {
 
     // user dropdown menu
     const userDropDownMenu = [
-        { label: 'Dashboard', path: '/dashboard' },
         { label: "Profile", path: "/dashboard/profile" },
     ];
 
