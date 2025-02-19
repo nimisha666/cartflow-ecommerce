@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+body {
+    padding-top: 100px;
+}
+
 .section__container {
     max-width: var(--max-width-1400);
     margin: auto;

@@ -29,9 +29,6 @@ const Navbar = () => {
     // admin dropdown menu
     const adminDropDownMenu = [
         { label: 'Dashboard', path: '/dashboard/admin' },
-        { label: "Manage Items", path: "/dashboard/manage-orders" },
-        { label: "All Orders", path: "/dashboard/manage-orders" },
-        { label: "Add New Post", path: "/dashboard/add-new-post" },
     ];
 
     // user dropdown menu
@@ -54,7 +51,7 @@ const Navbar = () => {
     }
 
     return (
-        <header className='fixed-nav-bar w-nav'>
+        <header className='fixed top-0 left-0 w-full z-50 bg-white shadow-md'>
             <nav className='max-w-screen-2xl mx-auto px-4 flex justify-between items-center'>
                 <div className='nav__logo'>
                     <Link to="/">Cartflow</Link>
