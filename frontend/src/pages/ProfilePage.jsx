@@ -57,9 +57,9 @@ const ProfilePage = () => {
             <div className="w-1/4 border-r pr-4">
                 <h2 className="text-2xl font-semibold mb-4">User Profile</h2>
                 <div className="flex flex-col space-y-2">
-                    <button className={`px-4 py-2 text-left ${activeTab === 'personal' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('personal')}>Personal Info</button>
-                    <button className={`px-4 py-2 text-left ${activeTab === 'address' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('address')}>Address</button>
-                    <button className={`px-4 py-2 text-left ${activeTab === 'orders' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('orders')}>Order History</button>
+                    <button className={`px-4 py-2 text-left ${activeTab === 'personal' ? 'bg-red-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('personal')}>Personal Info</button>
+                    <button className={`px-4 py-2 text-left ${activeTab === 'address' ? 'bg-red-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('address')}>Address</button>
+                    <button className={`px-4 py-2 text-left ${activeTab === 'orders' ? 'bg-red-500 text-white' : 'bg-gray-100'}`} onClick={() => setActiveTab('orders')}>Order History</button>
                     <button className="px-4 py-2 text-red-500 text-left" onClick={handleLogout}>Logout</button>
                 </div>
             </div>
@@ -86,7 +86,7 @@ const ProfilePage = () => {
                         <div className="mt-4">
                             {editable ? (
                                 <>
-                                    <button onClick={handleSave} className="px-4 py-2 bg-blue-500 text-white rounded">Save</button>
+                                    <button onClick={handleSave} className="px-4 py-2 bg-red-500 text-white rounded">Save</button>
                                     <button onClick={handleCancel} className="ml-2 px-4 py-2 bg-gray-500 text-white rounded">Cancel</button>
                                 </>
                             ) : (
