@@ -3,6 +3,7 @@
 This is a full-stack e-commerce web application built using React, Redux Toolkit, Tailwind CSS for the frontend, and Node.js, Express, and MongoDB for the backend. The application includes features like user authentication, product listings, a shopping cart, and profile management.
 
 ## Features
+
 - User authentication (Login, Logout, Profile Management)
 - Admin dashboard for managing products and orders
 - Shopping cart functionality
@@ -14,6 +15,7 @@ This is a full-stack e-commerce web application built using React, Redux Toolkit
 - MongoDB database for storing user, product, and order data
 
 ## Tech Stack
+
 - **Frontend:** React, Redux Toolkit, React Router, Tailwind CSS
 - **Backend:** Node.js, Express.js, MongoDB
 - **State Management:** Redux Toolkit
@@ -23,48 +25,60 @@ This is a full-stack e-commerce web application built using React, Redux Toolkit
 ## Installation & Setup
 
 ### 1. Clone the Repository
+
 ```sh
 git clone https://github.com/your-repo-url.git
 cd your-repo-folder
 ```
 
 ### 2. Install Dependencies
+
 ```sh
 npm install
 ```
 
 ### 3. Configure Environment Variables
+
 Create a `.env` file in the root directory and add the following variables:
+
 ```sh
 REACT_APP_API_URL=http://your-backend-api-url
 MONGO_URI=your-mongodb-connection-string
 JWT_SECRET=your-secret-key
 ```
+
 Ensure the backend API URL and database credentials are correct before proceeding.
 
 ### 4. Start the Backend Server
+
 ```sh
 cd backend
 npm install
 npm start
 ```
+
 This will start the backend API server.
 
 ### 5. Start the Frontend Development Server
+
 ```sh
 cd frontend
 npm start
 ```
+
 This will start the app on `http://localhost:3000`.
 
 ## Folder Structure
+
 ```
 ├── backend        # Backend server (Node.js, Express, MongoDB)
-│   ├── models    # Mongoose models
-│   ├── routes    # Express routes
-│   ├── controllers # API controllers
-│   ├── config    # Configuration files
-│   ├── server.js # Entry point for backend
+│   ├── middleware 
+│   ├── orders 
+│   ├── products
+│   ├── reviews 
+│   ├── routes 
+│   ├── users
+│   ├── index.js   # Entry point for backend
 │
 ├── frontend       # React application
 │   ├── components  # Reusable UI components
@@ -81,9 +95,11 @@ This will start the app on `http://localhost:3000`.
 ```
 
 ## Backend Setup
+
 We use Express.js for the backend API and Mongoose for MongoDB interactions.
 
 ### Example Express API (`backend/routes/auth.js`):
+
 ```js
 const express = require('express');
 const router = express.Router();
@@ -96,6 +112,7 @@ module.exports = router;
 ```
 
 ### MongoDB Connection (`backend/config/db.js`):
+
 ```js
 const mongoose = require('mongoose');
 const connectDB = async () => {
@@ -115,9 +132,11 @@ module.exports = connectDB;
 ```
 
 ## API Integration
+
 The app interacts with the backend via Redux Toolkit Query (`authApi.js`).
 
-### Example API Service (`src/features/auth/authApi.js`):
+### Example API Service (`frontend/features/auth/authApi.js`):
+
 ```js
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
@@ -139,13 +158,17 @@ export const { useLoginUserMutation } = authApi;
 ```
 
 ## Running the Production Build
+
 To create a production-ready build, run:
+
 ```sh
 npm run build
 ```
+
 This will generate an optimized version of the application in the `build` folder.
 
 ## Contribution Guidelines
+
 1. Fork the repository.
 2. Create a feature branch (`git checkout -b feature-name`).
 3. Commit your changes (`git commit -m "Add feature"`).
@@ -153,8 +176,10 @@ This will generate an optimized version of the application in the `build` folder
 5. Create a Pull Request.
 
 ## License
+
 This project is licensed under the MIT License.
 
 ## Contact
-For any queries or issues, feel free to reach out via GitHub Issues or email: `your-email@example.com`. 
+
+For any queries or issues, feel free to reach out via GitHub Issues or email: `your-email@example.com`.
 
