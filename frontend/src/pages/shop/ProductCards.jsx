@@ -7,7 +7,7 @@ import { addToCart } from '../../features/cart/cartSlice';
 const ProductCards = ({ products = [] }) => {
     const dispatch = useDispatch();
 
-    // ✅ Add to Cart Function
+    // Add to Cart Function
     const handleAddToCart = (product) => {
         if (!product._id) {
             product._id = product.id || `temp-${Math.random() * 1000}`; // Assign a fallback ID

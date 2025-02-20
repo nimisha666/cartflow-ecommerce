@@ -63,6 +63,6 @@ export const authApi = createApi({
     }),
 });
 
-// ✅ Correct way to export
+
 export const { useRegisterUserMutation, useLoginUserMutation, useLogoutUserMutation, useGetUserQuery, useDeleteUserMutation, useUpdateUserRoleMutation, useEditProfileMutation } = authApi;
-export default authApi;  // ✅ Ensure this is exported
+export default authApi;  

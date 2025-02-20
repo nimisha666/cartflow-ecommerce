@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const ContactUs = () => {
-    const navigate = useNavigate(); // ✅ Initialize useNavigate
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const [formData, setFormData] = useState({
         name: "",
@@ -24,11 +24,11 @@ const ContactUs = () => {
             return;
         }
 
-        // ✅ Show alert and redirect to home after "OK"
-        alert("✅ Message Sent Successfully!");
-        navigate("/"); // ✅ Redirect to Home Page
+        // Show alert and redirect to home after "OK"
+        alert(" Message Sent Successfully!");
+        navigate("/"); // Redirect to Home Page
 
-        // ✅ Clear form & error state
+        // Clear form & error state
         setFormData({ name: "", email: "", message: "" });
         setError("");
     };

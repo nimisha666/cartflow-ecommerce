@@ -19,7 +19,7 @@ const ShopPage = () => {
     const [filtersState, setFiltersState] = useState({
         category: 'all',
         color: 'all',
-        priceRange: ''  // ✅ Corrected key
+        priceRange: ''
     });
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -41,7 +41,7 @@ const ShopPage = () => {
         setFiltersState({
             category: 'all',
             color: 'all',
-            priceRange: ''  // ✅ Corrected key
+            priceRange: ''
         });
     };
 

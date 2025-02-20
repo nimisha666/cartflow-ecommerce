@@ -29,14 +29,14 @@ const cartSlice = createSlice({
                 console.log("Item is already in cart.");
             }
 
-            // ✅ Update the cart state after adding to cart
+            // Update the cart state after adding to cart
             updateCartState(state);
         },
 
         updateQuantity: (state, action) => {
             const { type, _id } = action.payload;
 
-            // ✅ Find the product by _id
+            // Find the product by _id
             const product = state.products.find((product) => product._id === _id);
 
             if (product) {
@@ -47,7 +47,7 @@ const cartSlice = createSlice({
                 }
             }
 
-            // ✅ Update state values after changing quantity
+            // Update state values after changing quantity
             updateCartState(state);
         },
         removeFromCart: (state, action) => {
@@ -64,7 +64,7 @@ const cartSlice = createSlice({
     },
 });
 
-// ✅ Function to update the cart state after any change
+// Function to update the cart state after any change
 const updateCartState = (state) => {
     state.selectedItems = calculateSelectedItems(state);
     state.totalPrice = calculateTotalPrice(state);
@@ -72,7 +72,7 @@ const updateCartState = (state) => {
     state.grandTotal = calculateGrandTotal(state);
 };
 
-// ✅ Helper functions for calculations
+// Helper functions for calculations
 export const calculateSelectedItems = (state) =>
     state.products.reduce((total, product) => total + product.quantity, 0);
 
