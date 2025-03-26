@@ -10,7 +10,7 @@ const ThankYouPage = () => {
                 <p className="text-gray-500">You will receive a confirmation email shortly.</p>
 
                 <div className="mt-6">
-                    <Link to="/order-history" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+                    <Link to="/order-history" className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-800 transition">
                         Show Order History
                     </Link>
                 </div>
