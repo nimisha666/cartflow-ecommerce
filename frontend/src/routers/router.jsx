@@ -12,6 +12,8 @@ import CheckoutPage from "../pages/shop/CheckoutPage.jsx";
 import ThankYouPage from "../pages/shop/ThankYouPage.jsx";
 import ContactUs from "../pages/shop/ContactUs.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import OrderHistory from "../pages/shop/OrderHistory.jsx";
+
 
 const router = createBrowserRouter([
     {
@@ -27,7 +29,8 @@ const router = createBrowserRouter([
             { path: "/checkout", element: <CheckoutPage /> },
             { path: "/thank-you", element: <ThankYouPage /> },
             { path: "/contact", element: <ContactUs /> },
-            { path: "/profile", element: <ProfilePage /> }
+            { path: "/profile", element: <ProfilePage /> },
+            { path: "/order-history", element: <OrderHistory /> }
         ]
     },
     {

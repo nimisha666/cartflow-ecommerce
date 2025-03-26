@@ -18,6 +18,23 @@ const CheckoutPage = () => {
             alert("Please enter your address before proceeding.");
             return;
         }
+
+        // Create an order object
+        const orderData = {
+            orderId: Date.now(),
+            items: products,
+            totalPrice,
+            tax,
+            grandTotal,
+            address,
+            date: new Date().toLocaleString(),
+        };
+
+        // Save order in localStorage
+        const existingOrders = JSON.parse(localStorage.getItem("orderHistory")) || [];
+        localStorage.setItem("orderHistory", JSON.stringify([...existingOrders, orderData]));
+
+        // Clear Cart
         dispatch(clearCart());
         navigate('/thank-you');
     };
@@ -26,13 +43,10 @@ const CheckoutPage = () => {
         <div className="max-w-4xl mx-auto p-4 sm:p-6 bg-white rounded-md shadow-md mt-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Checkout</h2>
 
-            {/* Cart Items */}
             {products.length > 0 ? (
                 <div className="border-b pb-4">
                     {products.map((item, index) => (
                         <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between shadow-md p-3 mb-4 rounded-lg">
-
-                            {/* Product Image & Info */}
                             <div className="flex items-center space-x-4 w-full sm:w-auto">
                                 <span className="px-2 bg-red-500 text-white rounded-full text-sm">{index + 1}</span>
                                 <img src={item.image} alt={item.name} className="w-14 h-14 object-cover rounded-md" />
@@ -41,8 +55,6 @@ const CheckoutPage = () => {
                                     <p className="text-gray-600 text-sm">₹{Number(item.price).toFixed(2)}</p>
                                 </div>
                             </div>
-
-                            {/* Quantity & Total */}
                             <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mt-3 sm:mt-0">
                                 <p className="text-sm sm:text-base">Qty: {item.quantity}</p>
                                 <p className="text-sm sm:text-base font-semibold">Total: ₹{(item.price * item.quantity).toFixed(2)}</p>
@@ -54,7 +66,6 @@ const CheckoutPage = () => {
                 <p className="text-red-500 text-center mt-4">🛒 Your cart is empty!</p>
             )}
 
-            {/* Address Field */}
             <div className="mt-4">
                 <label className="block text-gray-700 font-semibold">Shipping Address:</label>
                 <textarea
@@ -64,7 +75,6 @@ const CheckoutPage = () => {
                     placeholder="Enter your full address..."
                 />
             </div>
-
             {/* Payment Method */}
             <div className="mt-4">
                 <label className="block text-gray-700 font-semibold">Payment Method:</label>
@@ -73,15 +83,6 @@ const CheckoutPage = () => {
                 </select>
             </div>
 
-            {/* Order Summary */}
-            <div className="mt-4 p-4 bg-gray-100 rounded">
-                <h3 className="font-bold text-lg">Order Summary</h3>
-                <p className="text-sm sm:text-base">Total Price: ₹{totalPrice.toFixed(2)}</p>
-                <p className="text-sm sm:text-base">Tax (5%): ₹{tax.toFixed(2)}</p>
-                <h3 className="font-bold text-lg">Grand Total: ₹{grandTotal.toFixed(2)}</h3>
-            </div>
-
-            {/* Checkout Button */}
             <button
                 onClick={handleCheckout}
                 className="bg-green-600 w-full text-white py-2 rounded-md mt-4 hover:bg-green-700 transition text-sm sm:text-base">
